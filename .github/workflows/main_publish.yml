@@ -35,8 +35,8 @@ jobs:
           cache: 'gradle'
       - name: Setup Git
         run: |
-          git config --global user.email "titanium@titanvale.net"
-          git config --global user.name "Titanium CI/CD"
+          git config --global user.email "georgev22.github@gmail.com"
+          git config --global user.name "GeorgeV220"
           git config --global init.defaultBranch main
       - name: Grant execute permissions
         run: |
@@ -51,5 +51,5 @@ jobs:
       - name: Publish Titanium JAR
         run: ./gradlew publishAllPublicationsToReleasesRepository --no-daemon
         env:
-          RELEASES_USERNAME: ${{ secrets.RELEASES_USERNAME }}
-          RELEASES_PASSWORD: ${{ secrets.RELEASES_PASSWORD }}
+          MAVEN_USERNAME: ${{ secrets.MAVEN_USERNAME }}
+          MAVEN_PASSWORD: ${{ secrets.MAVEN_PASSWORD }}

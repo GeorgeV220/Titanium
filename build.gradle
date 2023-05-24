@@ -62,13 +62,13 @@ subprojects {
                 artifact javadocJar
 
                 versionMapping {
-                    usage('java-runtime'){
+                    usage('java-runtime') {
                         fromResolutionOf("runtimeClasspath")
                     }
                 }
 
                 pom {
-                    url = "https://github.com/TitaniumMC/Titanium"
+                    url = "https://github.com/GeorgeV220/Titanium"
                     name = project.name
 
                     developers {
@@ -77,18 +77,23 @@ subprojects {
                             name = "Peter"
                             email = "peridot491@protonmail.com"
                         }
+                        developer {
+                            id = "georgev22"
+                            name = "George"
+                            email = "georgev22.github@gmail.com"
+                        }
                     }
 
                     scm {
-                        connection = "scm:git:git://github.com/TitaniumMC/Titanium.git"
-                        developerConnection = "scm:git:git://github.com/TitaniumMC/Titanium.git"
-                        url = "https://github.com/TitaniumMC/Titanium.git"
+                        connection = "scm:git:git://github.com/GeorgeV220/Titanium.git"
+                        developerConnection = "scm:git:git://github.com/GeorgeV220/Titanium.git"
+                        url = "https://github.com/GeorgeV220/Titanium.git"
                     }
 
                     licenses {
                         license {
                             name = "GPL-v3.0"
-                            url  = "https://www.gnu.org/licenses/gpl-3.0.txt"
+                            url = "https://www.gnu.org/licenses/gpl-3.0.txt"
                         }
                     }
                 }
@@ -113,10 +118,10 @@ subprojects {
         repositories {
             maven {
                 name "snapshots"
-                url "https://repo.titanvale.net/snapshots"
+                url "https://repo.georgev22.com/snapshots"
 
-                String snapshotsUsername = System.getenv("SNAPSHOTS_USERNAME")
-                String snapshotsPassword = System.getenv("SNAPSHOTS_PASSWORD")
+                String snapshotsUsername = System.getenv("MAVEN_USERNAME")
+                String snapshotsPassword = System.getenv("MAVEN_PASSWORD")
                 if (snapshotsUsername != null && snapshotsPassword != null) {
                     credentials {
                         username = snapshotsUsername
@@ -132,10 +137,10 @@ subprojects {
             }
             maven {
                 name "releases"
-                url "https://repo.titanvale.net/releases"
+                url "https://repo.georgev22.com/releases"
 
-                String releasesUsername = System.getenv("RELEASES_USERNAME")
-                String releasesPassword = System.getenv("RELEASES_PASSWORD")
+                String releasesUsername = System.getenv("MAVEN_USERNAME")
+                String releasesPassword = System.getenv("MAVEN_PASSWORD")
                 if (releasesUsername != null && releasesPassword != null) {
                     credentials {
                         username = releasesUsername

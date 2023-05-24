@@ -36,8 +36,8 @@ jobs:
           cache: 'gradle'
       - name: Setup Git
         run: |
-          git config --global user.email "titanium@titanvale.net"
-          git config --global user.name "Titanium CI/CD"
+          git config --global user.email "georgev22.github@gmail.com"
+          git config --global user.name "GeorgeV220"
           git config --global init.defaultBranch main
       - name: Grant execute permissions
         run: |

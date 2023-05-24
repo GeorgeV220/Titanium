@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: George V <georgev22.github@gmail.com>
+Date: Wed, 24 May 2023 12:57:19 +0300
+Subject: [PATCH] refactor: Change repository name and URL in
+ PaperVersionFetcher
+
+
+diff --git a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+index 2bba719159b16d4cc212d81a38f74ab2bdb17ef8..506eb823b4daef7433ec0f863d3a8c7d52e49e0b 100644
+--- a/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
++++ b/src/main/java/com/destroystokyo/paper/PaperVersionFetcher.java
+@@ -25,7 +25,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+     @Override
+     public String getVersionMessage(@NotNull String serverVersion) {
+         String[] parts = serverVersion.substring("git-Titanium-".length()).split("[-\\s]");
+-        return getUpdateStatusMessage("TitaniumMC/Titanium", parts[0], parts[1], parts[2]);
++        return getUpdateStatusMessage("GeorgeV220/Titanium", parts[0], parts[1], parts[2]);
+     }
+ 
+     private static String getUpdateStatusMessage(@NotNull String repo, @NotNull String source, @NotNull String branch, @NotNull String versionInfo) {
+@@ -37,7 +37,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+             }
+             // Titanium end
+             int jenkinsBuild = Integer.parseInt(versionInfo);
+-            distance = fetchDistanceFromSiteApi(branch, jenkinsBuild);
++            distance = fetchDistanceFromSiteApi(jenkinsBuild);
+         } catch (NumberFormatException ignored) {
+             versionInfo = versionInfo.replace("\"", "");
+             distance = fetchDistanceFromGitHub(repo, branch, versionInfo);
+@@ -52,7 +52,7 @@ public class PaperVersionFetcher implements VersionFetcher {
+                 return ChatColor.translateAlternateColorCodes('&',"&8>> &7Unknown version &e" + versionInfo + " &7detected!");
+             default:
+                 // Titanium start
+-                String downloadPage = "https://jenkins.titanvale.net/job/Titanium/job/" + branch;
++                String downloadPage = "https://jenkins.georgev22.com/job/Titanium/";
+                 return ChatColor.translateAlternateColorCodes('&',"&8>> &7You are &3" + distance + " &7version(s) behind!")
+                         + ChatColor.RESET
+                         + "\n"
+@@ -64,10 +64,10 @@ public class PaperVersionFetcher implements VersionFetcher {
+         }
+     }
+ 
+-    private static int fetchDistanceFromSiteApi(@NotNull String branch, int jenkinsBuild) {
++    private static int fetchDistanceFromSiteApi(int jenkinsBuild) {
+         try {
+             try (BufferedReader reader = Resources.asCharSource(
+-                    new URL("https://jenkins.titanvale.net/job/Titanium/job/" + branch + "/api/json?lastCompletedBuild[number]"),
++                    new URL("https://jenkins.georgev22.com/job/Titanium/api/json?lastCompletedBuild[number]"),
+                     Charsets.UTF_8
+             ).openBufferedStream()) {
+                 JsonObject json = new Gson().fromJson(reader, JsonObject.class);

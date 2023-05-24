@@ -11,8 +11,8 @@ allprojects {
     apply plugin: 'com.github.johnrengelman.shadow'
 
     ext {
-        gitHash = project.getCurrentGitHash()
-        gitBranch = System.getenv("BRANCH_NAME") ?: project.getCurrentGitBranch()
+        gitHash = getCurrentGitHash()
+        gitBranch = System.getenv("BRANCH_NAME") ?: getCurrentGitBranch()
     }
 
     repositories {

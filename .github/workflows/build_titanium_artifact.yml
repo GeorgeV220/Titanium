@@ -2,7 +2,8 @@ name: Build Titanium with Paperclip and deploy as Action artifact
 
 on:
   push:
-    branches: [ main, dev ]
+    branches:
+      - dev
 
 jobs:
   build:

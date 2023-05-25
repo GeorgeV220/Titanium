@@ -1,4 +1,4 @@
-name: Publish Titanium dev to TitanVale repository
+name: Publish Titanium dev to GeorgeV22 repository
 
 on:
   push:

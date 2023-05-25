@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Aviana Cruz <gwencroft@proton.me>
 Date: Fri, 23 Dec 2022 15:05:15 +0800
-Subject: [PATCH] Implement [PandaSpigot-0092] Backport ArrowDMG fix by Aviana
+Subject: [PATCH] Implement [PandaSpigot-0090] Backport ArrowDMG fix by Aviana
  Cruz
 
 Upstream commit: PaperMC/Paper@bb397ba74c034ffe5ae164d774a043cb7bca0472

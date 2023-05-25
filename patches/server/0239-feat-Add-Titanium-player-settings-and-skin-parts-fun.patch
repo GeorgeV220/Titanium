@@ -1,0 +1,83 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: George V <georgev22.github@gmail.com>
+Date: Thu, 25 May 2023 13:49:30 +0300
+Subject: [PATCH] feat: Add Titanium player settings and skin parts
+ functionality
+
+
+diff --git a/src/main/java/net/minecraft/server/EntityPlayer.java b/src/main/java/net/minecraft/server/EntityPlayer.java
+index 1026866727416faeb85059c9505cdc7bed76c1bc..98df5423ced0c6edb1a1f6ef31b90e68223bf947 100644
+--- a/src/main/java/net/minecraft/server/EntityPlayer.java
++++ b/src/main/java/net/minecraft/server/EntityPlayer.java
+@@ -210,7 +210,7 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
+         if (this.noDamageTicks > 0) {
+             --this.noDamageTicks;
+         }
+-        
++
+         // PaperSpigot start - Configurable container update tick rate
+         if (--containerUpdateDelay <= 0) {
+             this.activeContainer.b();
+@@ -1067,6 +1067,8 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
+     }
+ 
+     public void a(PacketPlayInSettings packetplayinsettings) {
++        // Titanium start - Add PlayerSettingsEvent
++        CraftEventFactory.callPlayerSettingsChangeEvent(this, packetplayinsettings.a(), packetplayinsettings.c().a(), packetplayinsettings.d(), (byte) packetplayinsettings.e());
+         // PaperSpigot start - Add PlayerLocaleChangeEvent
+         String oldLocale = this.locale;
+         this.locale = packetplayinsettings.a();
+@@ -1083,6 +1085,16 @@ public class EntityPlayer extends EntityHuman implements ICrafting {
+         return this.bR;
+     }
+ 
++    // Titanium start
++    public boolean hasChatColorsEnabled() {
++        return this.bS;
++    }
++
++    public byte getSkinParts() {
++        return this.getDataWatcher().getByte(10);
++    }
++    // Titanium end
++
+     public void setResourcePack(String s, String s1) {
+         this.playerConnection.sendPacket(new PacketPlayOutResourcePackSend(s, s1));
+     }
+diff --git a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
+index f15989be18d6bee7fe88ce2316fd81277d4fd3e5..7b2ac4c950b10beb596b7f3d6893609fcef80c71 100644
+--- a/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
++++ b/src/main/java/org/bukkit/craftbukkit/entity/CraftPlayer.java
+@@ -1694,4 +1694,32 @@ public class CraftPlayer extends CraftHumanEntity implements Player {
+         return spigot;
+     }
+     // Spigot end
++
++    // Titanium start
++    private final Player.Titanium titanium = new Player.Titanium() {
++
++        @Override
++        public int getChatVisibility()
++        {
++            return getHandle().getChatFlags().a();
++        }
++
++        @Override
++        public boolean hasChatColorsEnabled()
++        {
++            return getHandle().hasChatColorsEnabled();
++        }
++
++        @Override
++        public byte getSkinParts()
++        {
++            return getHandle().getSkinParts();
++        }
++    };
++
++    public Player.Titanium titanium()
++    {
++        return titanium;
++    }
++    // Titanium end
+ }

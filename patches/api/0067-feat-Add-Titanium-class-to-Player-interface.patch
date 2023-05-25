@@ -1,0 +1,51 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: George V <georgev22.github@gmail.com>
+Date: Thu, 25 May 2023 13:48:12 +0300
+Subject: [PATCH] feat: Add Titanium class to Player interface
+
+
+diff --git a/src/main/java/org/bukkit/entity/Player.java b/src/main/java/org/bukkit/entity/Player.java
+index b6ced8b3698b6696fdaac7b74925556d394cf8f5..b23b8c9e1c1834fcb9d0dff36eec53dd0271aa9c 100644
+--- a/src/main/java/org/bukkit/entity/Player.java
++++ b/src/main/java/org/bukkit/entity/Player.java
+@@ -2,8 +2,6 @@ package org.bukkit.entity;
+ 
+ import java.net.InetSocketAddress;
+ 
+-import net.md_5.bungee.api.chat.BaseComponent;
+-import net.md_5.bungee.api.chat.TextComponent;
+ import org.bukkit.Achievement;
+ import org.bukkit.ChatColor;
+ import org.bukkit.Effect;
+@@ -1477,4 +1475,31 @@ public interface Player extends HumanEntity, Conversable, CommandSender, Offline
+ 
+     Spigot spigot();
+     // Spigot end
++
++    // Titanium start
++    public class Titanium {
++
++        /**
++         * Gets player chat visibility.
++         * @return the player's chat visibility setting
++         */
++        public int getChatVisibility()
++        {
++            throw new UnsupportedOperationException( "Not supported yet." );
++        }
++
++        public boolean hasChatColorsEnabled()
++        {
++            throw new UnsupportedOperationException( "Not supported yet." );
++        }
++
++        public byte getSkinParts()
++        {
++            throw new UnsupportedOperationException( "Not supported yet." );
++        }
++
++    }
++
++    Titanium titanium();
++    // Titanium end
+ }

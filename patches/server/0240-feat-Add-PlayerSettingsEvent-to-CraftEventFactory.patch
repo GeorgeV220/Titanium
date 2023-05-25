@@ -1,0 +1,40 @@
+From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
+From: George V <georgev22.github@gmail.com>
+Date: Thu, 25 May 2023 13:49:48 +0300
+Subject: [PATCH] feat: Add PlayerSettingsEvent to CraftEventFactory
+
+
+diff --git a/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java b/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
+index a854a5683f662e6cb68e2d69e4f3bd75cf436be1..f6b3f19c4c11d3dde4237f143c1935f761455510 100644
+--- a/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
++++ b/src/main/java/org/bukkit/craftbukkit/event/CraftEventFactory.java
+@@ -12,6 +12,7 @@ import com.google.common.base.Functions;
+ 
+ import net.minecraft.server.*;
+ 
++import net.titanium.event.player.PlayerSettingsEvent;
+ import org.bukkit.Bukkit;
+ import org.bukkit.Material;
+ import org.bukkit.Server;
+@@ -20,7 +21,6 @@ import org.bukkit.block.Block;
+ import org.bukkit.block.BlockFace;
+ import org.bukkit.block.BlockState;
+ import org.bukkit.block.CreatureSpawner;
+-import org.bukkit.craftbukkit.CraftChunk;
+ import org.bukkit.craftbukkit.CraftServer;
+ import org.bukkit.craftbukkit.CraftStatistic;
+ import org.bukkit.craftbukkit.CraftWorld;
+@@ -1063,4 +1063,13 @@ public class CraftEventFactory {
+         return event;
+     }
+     // PaperSpigot end
++
++    // Titanium start Add PlayerSettingsEvent
++    public static PlayerSettingsEvent callPlayerSettingsChangeEvent(EntityHuman who, String locale, int chatVisibility, boolean chatColors, byte skinParts) {
++        Player player = (Player) who.getBukkitEntity();
++        PlayerSettingsEvent event = new PlayerSettingsEvent(player, locale, chatVisibility, chatColors, skinParts);
++        Bukkit.getPluginManager().callEvent(event);
++        return event;
++    }
++    // Titanium end
+ }

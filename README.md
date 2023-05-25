@@ -1,13 +1,15 @@
-# Titanium ![Titanium CI](https://github.com/TitanVale/Titanium/actions/workflows/build_titanium.yml/badge.svg) [![Discord Shield](https://discordapp.com/api/guilds/982930890780966922/widget.png?style=shield)](https://discord.gg/VYTTRFYJE7)
+# Titanium 
+![Titanium CI](https://github.com/GeorgeV220/Titanium/actions/workflows/build_titanium.yml/badge.svg)
 
-Titanium is 1.8.8 [Paper](https://github.com/PaperMC/Paper) fork which aims to improve performance, fix exploits and bugs, improve API and provide better configuration for server administrators. 
+Titanium is 1.8.8 [Paper](https://github.com/PaperMC/Paper) fork which aims to improve performance, 
+fix exploits and bugs, improve API and provide better configuration for server administrators. 
 
 *Titanium officially supports JDK **8**, **11** & **17*** - but we recommend to use *Java 17*.
 
 ## Download
 
-Latest version of Titanium - [Releases page](https://github.com/TitanVale/Titanium/releases). <br>
-Dev versions (less stable, but with newer patches) - [Jenkins](https://jenkins.titanvale.net/job/Titanium/job/dev)
+Latest version of Titanium - Not a stable release yet. <br>
+Dev versions (less stable, but with newer patches) - [Jenkins](https://jenkins.georgev22.com/job/Titanium/)
 
 ## Building
 
@@ -21,7 +23,8 @@ If you want to build Titanium you will need these things to be installed and ava
 #### How to
 To patching, compiling and building Titanium you will use `titanium` script.
 
-To just build Titanium clone this repository and run `./titanium build paperclip` in the root directory. Then you will find your server jar in `Titanium-Server/build/libs`, it should be named `titanium.jar`.
+To just build Titanium clone this repository and run `./titanium build paperclip` in the root directory. 
+Then you will find your server jar in `Titanium-Server/build/libs`, it should be named `titanium.jar`.
 
 ## API
 
@@ -35,8 +38,8 @@ Server - [Link](https://repo.titanvale.net/javadoc/snapshots/net/titanvale/titan
 Repository:
 ```xml
 <repository>
-  <id>titanvale-snapshots</id>
-  <url>https://repo.titanvale.net/snapshots/</url>
+  <id>georgev22-snapshots</id>
+  <url>https://repo.georgev22.com/snapshots/</url>
 </repository>
 ```
 API:
@@ -201,8 +204,7 @@ Titanium implements patches from other engines as well. **All credits go to the 
 [PandaSpigot-0050] Metrics by hpfxd
 [PandaSpigot-0054] Disconnect for payload errors by uRyanxD
 [PandaSpigot-0060] Optimise removeQueue by hpfxd
-[PandaSpigot-0087] Fix Entity Tracker Rounding by necrozma
-[PandaSpigot-0092] Backport ArrowDMG fix by Aviana Cruz
+[PandaSpigot-0090] Backport ArrowDMG fix by Aviana Cruz
 
 [IonSpigot-0003] Explosion Improvements by SuicidalKids
 [IonSpigot-0006] Fix Chunk Loading by SuicidalKids
@@ -254,6 +256,6 @@ Titanium implements patches from other engines as well. **All credits go to the 
 
 ## Contributing
 
-* To start contributing to Titanium, make sure you meet the [Requirements](https://github.com/TitanVale/Titanium#requirements). Then you can run `./titanium build` to prepare upstream and apply patches.
+* To start contributing to Titanium, make sure you meet the [Requirements](https://github.com/GeorgeV220/Titanium#requirements). Then you can run `./titanium build` to prepare upstream and apply patches.
 * To add patches to Titanium simply make your changes in `Titanium-API` and `Titanium-Server`, then just commit them. Then run `./titanium rebuild`.
 * After modifying code to for eg. test it, run `./titanium jar`.

@@ -18,8 +18,9 @@ allprojects {
     repositories {
         mavenCentral()
         maven { url 'https://libraries.minecraft.net' }
-        maven { url 'https://repo.titanvale.net/releases' }
-        maven { url 'https://repo.titanvale.net/snapshots' }
+        maven { url 'https://repo.georgev22.com/releases' }
+        maven { url 'https://repo.georgev22.com/snapshots' }
+        maven { url 'https://repo.papermc.io/repository/maven-public/' }
         maven { url 'https://storehouse.okaeri.eu/repository/maven-public' }
         maven { url 'https://repo.glaremasters.me/repository/concuncan/' }
     }
